@@ -1,10 +1,9 @@
-
 <header id="header" class="fixed-top " (scroll)="onWindowScroll();"
   style="background: white;box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;">
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="menapik" href="/" routerLinkActive="" ariaCurrentWhenActive="page"><img
-              src="../../../../assets/img/Groupe4162.png" alt="%enapik"></a>
+      <a class="menapik" href="#" routerLinkActive="" ariaCurrentWhenActive="page"><img src="assets/img/Groupe4162.png"
+          alt="%enapik"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -12,34 +11,25 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item-header" *ngIf="showContributeurBoard">
-            <a class="nav-link scrollto"
-               routerLink="/vendre-votre-contenu"
-                routerLinkActive="active"
-               ariaCurrentWhenActive="page"
-               style="color: #8C8C8C;">
+            <a class="nav-link scrollto" routerLink="/vendre-votre-contenu" routerLinkActive="active"
+              ariaCurrentWhenActive="page" style="color: #8C8C8C;">
               Vendre votre contenu
             </a>
           </li>
           <li class="nav-item-header" *ngIf="showAdminBoard">
-            <a class="nav-link scrollto"
-               routerLink="/all-product"
-          routerLinkActive="active"
-               ariaCurrentWhenActive="page"
-               style="color: #8C8C8C;">
+            <a class="nav-link scrollto" routerLink="/all-product" routerLinkActive="active"
+              ariaCurrentWhenActive="page" style="color: #8C8C8C;">
               tout les produits
             </a>
           </li>
           <li class="nav-item-header" *ngIf="showAdminBoard">
-            <a class="nav-link scrollto"
-               routerLink="/all-contributeur"
-               routerLinkActive="active"
-               ariaCurrentWhenActive="page"
-               style="color: #8C8C8C;">
+            <a class="nav-link scrollto" routerLink="/all-contributeur" routerLinkActive="active"
+              ariaCurrentWhenActive="page" style="color: #8C8C8C;">
               list contributeur
             </a>
           </li>
-          <li class="nav-item-header"><a class="nav-link scrollto" routerLink="/tarif"
-                                  routerLinkActive="active" ariaCurrentWhenActive="page" style="color: #8C8C8C;">Tarifs</a></li>
+          <li class="nav-item-header"><a class="nav-link scrollto" routerLink="/tarif" routerLinkActive="active"
+              ariaCurrentWhenActive="page" style="color: #8C8C8C;">Tarifs</a></li>
         </ul>
         <form class="d-flex" *ngIf="!isLoggedIn">
           <button class="btn scrollto"><a class="nav-link scrollto" routerLink="/signin" routerLinkActive="active"
@@ -49,12 +39,8 @@
         </form>
         <form class="d-flex" *ngIf="isLoggedIn">
           <button class="btn getstarted scrollto">
-            <a class="nav-link scrollto"
-               routerLink="/signin"
-               routerLinkActive="active"
-               ariaCurrentWhenActive="page"
-               (click)="logout()"
-               style="color: white;">
+            <a class="nav-link scrollto" routerLink="/signin" routerLinkActive="active" ariaCurrentWhenActive="page"
+              (click)="logout()" style="color: white;">
               se déconnecter
             </a>
           </button>
