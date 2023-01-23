@@ -1,0 +1,406 @@
+<!--<section *ngIf="div1" style="background: #FAFBFF 0% 0% no-repeat padding-box;">
+    <div class="container" style="padding: 5% 0%;">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <img src="../../../../assets/img/Groupe%20de%20masques%2041.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="nom_createur" aria-describedby="basic-addon1"
+                        placeholder="Nom du créateur">
+                </div>
+                <div class="row mb-3">
+                    <div class="btn-group">
+                        <button disabled class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Status
+                        </button>
+                        <ul class="dropdown-menu" style="width: 95%;">
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="num_tel" aria-describedby="basic-addon1"
+                        placeholder="Numéro de telephone">
+                </div>
+                <div class="input-group">
+                    <textarea class="form-control" aria-label="Biographie" placeholder="Biographie"></textarea>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <h3>Portefeuille professionnel</h3>
+                <p>Ces informations seront visibles pour les utilisateurs de Menapik. N'hésitez pas à partager quelque
+                    chose d'intéressant sur vous, comme le lien vers votre portfolio, et à rendre votre travail visible
+                    aux utilisateurs</p>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" style="background: #FF6B31 0% 0% no-repeat padding-box;"
+                        id="basic-addon1"><i class="bi bi-download"></i></span>
+                    <input type="text" class="form-control" id="file_url" aria-describedby="basic-addon1"
+                        placeholder="Télécharger votre portfolio ici">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" style="background: #18DABF 0% 0% no-repeat padding-box;"
+                        id="basic-addon2"><i class="bi bi-globe"></i></span>
+                    <input type="text" class="form-control" id="site_url" aria-describedby="basic-addon2"
+                        placeholder="https://www.votresiteweb.com/">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3"
+                        style="background: #0A66C2 0% 0% no-repeat padding-box;"><i class="bi bi-linkedin"></i></span>
+                    <input type="text" class="form-control" id="linkedin-url" aria-describedby="basic-addon3"
+                        placeholder="https://www.linkedin.com/">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon4"
+                        style="background: #F26798 0% 0% no-repeat padding-box;"><i class="bi bi-dribbble"></i></span>
+                    <input type="text" class="form-control" id="dribbble-url" aria-describedby="basic-addon4"
+                        placeholder="https://www.dribbble.com/">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" style="background: #5521E3 0% 0% no-repeat padding-box;"
+                        id="basic-addon5"><i class="bi bi-behance"></i></span>
+                    <input type="text" class="form-control" id="behance-url" aria-describedby="basic-addon5"
+                        placeholder="https://www.behance.com/">
+                </div>
+                <div class="row">
+                    <input type="button" class="buttonProchain" value="Prochain" (click)="div1Function()">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
+
+<section *ngIf="isLoggedIn && showAdminBoard" style="background: #FAFBFF 0% 0% no-repeat padding-box; ">
+  <div class="container" style="padding: 5% 0%;">
+    <!-- (ngSubmit)="onSubmit(styleGraph.value, colorP.value)"-->
+
+    <div *ngIf="showAlert" class="alert alert-success">
+      <strong>Très bien!</strong> La fichier a été bien télécharger.
+    </div>
+    <div *ngIf="showAlert" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+    <form (ngSubmit)="onSubmit(styleGraph.value, colorP.value)" [formGroup]="createProductForm" class="email-form"
+          novalidate
+          role="form">
+      <div class="row">
+        <div class="col-xl-5 col-lg-12 col-sm-12 col-xs-12">
+          <div class="mb-3">
+            <!--     <input type="file" id="upload" accept="image/*" (change)="onFileSelected({event : $event})" hidden/> -->
+            <label
+              for="upload"
+              style="cursor: pointer;
+                    border: dashed 2px #C0C0C0;
+                     padding: 0px">
+              <img
+
+                [src]="imageDataUrl"/>
+            </label>
+
+            <!--   <button type="file" style="border: dashed 2px #C0C0C0; padding: 0px"></button>-->
+          </div>
+          <p style="text-align: left;font: normal normal normal 20px/24px 'Montserrat', sans-serif;color: #C0C0C0;">
+            Choisissez une image Thumbnail pour votre contenu Cette image va être affiché sur la plateforme</p>
+          <input #inputImage (change)="onFileChange('image')" accept="image/*" hidden id="upload" name="image"
+                 type="file"/>
+          <div class="row justify-content-center" style="width:80%">
+            <button (click)="inputImage.click();" class="loadImage" style="width:80%">
+              <i class="bi bi-download"></i>
+              Changer l'image
+            </button>
+          </div>
+
+          <!--<input  type="button" class="loadImage" (click)="inputImage.click();" value="Changer l'image">-->
+        </div>
+        <div class="col-xl-7 col-lg-12 col-sm-12 col-xs-12">
+
+          <!-- name text -->
+          <div class="form-group mb-3">
+            <input
+              class="form-control"
+              formControlName="nameP"
+              id="nameP"
+              name="nameP"
+              placeholder="Attribuer un nom à votre création"
+              type="text">
+          </div>
+          <!-- description textarea -->
+          <div class="form-group mb-3">
+                    <textarea
+
+                      aria-label="Biographie"
+                      class="form-control"
+                      formControlName="descriptionP"
+                      name="descriptionP"
+
+                      placeholder="Description"
+                      required>
+
+                    </textarea>
+          </div>
+          <!-- style dropdown -->
+          <div class="row mb-3 ">
+            <div class="btn-group">
+              <select #styleGraph aria-label="Default select example" class="form-select">
+                <option *ngFor="let sg of styleGraphic" [value]="sg.Name">{{sg.Name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- color dropdown -->
+          <div class="row  mb-3">
+            <div class="btn-group">
+              <select #colorP aria-label="Default select example" class="form-select">
+
+                <option *ngFor="let c of couleur" [style.color]="c.color" [value]="c.Name">{{c.Name}}</option>
+
+              </select>
+            </div>
+          </div>
+          <!-- categorie -->
+          <div class="row form-group mb-3">
+            <div class="row form-group mt-3 mt-md-0 mb-4">
+              <h3>Catégorie</h3>
+            </div>
+            <!-- vector button upload file -->
+            <div class="col-xl-4 col-lg-4 col-sm-6 col-md-6 col-xs-12 form-group  mb-3">
+              <div [style.background]="clicked1?'#18DABF':'#fff'"
+                   [style.color]="clicked1?'white':'#8C8C8C'"
+                   class="buttonCategorie form-control">
+                <input #inputVector (change)="onFileChange('vector')"
+                       accept="image/jpeg"
+                       hidden
+                       id="uploadV" type="file"/>
+
+
+                <label
+                  for="uploadV"
+                  style="cursor: pointer;
+                     padding: 0px;    width: inherit;">
+                  Vecteur
+                </label>
+
+              </div>
+            </div>
+            <!-- photos button upload file -->
+            <div class="col-xl-4 col-lg-4 col-sm-6 col-md-6 col-xs-12 form-group  mb-3">
+
+              <div [style.background]="clicked2?'#18DABF':'#fff'"
+                   [style.color]="clicked2?'white':'#8C8C8C'"
+                   class="buttonCategorie form-control"
+              >
+                <input #inputPDF (change)="onFileChange('pdf')"
+                       accept="image/jpeg"
+                       hidden
+                       id="uploadF" type="file"/>
+
+
+                <label
+                  for="uploadF"
+                  style="cursor: pointer;
+                     padding: 0px;    width: inherit;">
+                  PDF
+                </label>
+              </div>
+            </div>
+            <!-- icons button upload file -->
+            <div class="col-xl-4 col-lg-4 col-sm-6 col-md-6 col-xs-12 form-group  mb-3">
+              <div [style.background]="clicked3?'#18DABF':'#fff'"
+                   [style.color]="clicked3?'white':'#8C8C8C'"
+                   class="buttonCategorie form-control"
+              >
+
+                <label
+                  for="uploadI"
+                  style="cursor: pointer;
+                     padding: 0px;    width: inherit;">
+                  <input #inputIcon (change)="onFileChange('icon')"
+                         accept="image/jpeg"
+                         hidden
+                         id="uploadI"
+                         type="file"/>
+
+                  Icons
+                </label>
+              </div>
+            </div>
+            <!-- eps button upload file -->
+            <div class="col-xl-4 col-lg-4 col-sm-6 col-md-6 col-xs-12 form-group  mb-3">
+              <div [style.background]="clicked4?'#18DABF':'#fff'"
+                   [style.color]="clicked4?'white':'#8C8C8C'"
+                   class="buttonCategorie form-control"
+              >
+                <input #inputEps (change)="onFileChange('eps')"
+                       accept="image/jpeg"
+                       hidden
+                       id="uploadEPS"
+                       type="file"/>
+                <label
+                  for="uploadEPS"
+                  style="cursor: pointer;
+                     padding: 0px ;   width: inherit;">
+                  EPS
+                </label>
+              </div>
+            </div>
+            <!-- svg button upload file -->
+            <div class="col-xl-4 col-lg-4 col-sm-6 col-md-6 col-xs-12 form-group  mb-3">
+              <div [style.background]="clicked5?'#18DABF':'#fff'"
+                   [style.color]="clicked5?'white':'#8C8C8C'"
+                   class="buttonCategorie form-control">
+                <input #inputSVG (change)="onFileChange('svg')"
+                       accept="image/svg"
+                       hidden
+                       id="uploadSVG"
+                       type="file"/>
+                <label
+                  for="uploadSVG"
+                  style="cursor: pointer;
+                     padding: 0px;    width: inherit;">
+                  SVG
+                </label>
+              </div>
+            </div>
+            <!-- png button upload file -->
+            <div class="col-xl-4 col-lg-4 col-sm-6 col-md-6 col-xs-12 form-group  mb-3">
+              <div [style.background]="clicked6?'#18DABF':'#fff'"
+                   [style.color]="clicked6?'white':'#8C8C8C'"
+                   class="buttonCategorie form-control"
+              >
+                <input #inputPNG (change)="onFileChange('png')"
+                       accept="image/png"
+                       hidden
+                       id="uploadPNG"
+                       type="file"/>
+                <label
+                  for="uploadPNG"
+                  style="cursor: pointer;
+                     padding: 0px ;   width: inherit;">
+                  PNG
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <!-- format -->
+          <div class="row form-group mb-3">
+
+            <div class="row form-group  mb-4">
+              <h3>Format</h3>
+            </div>
+            <div class="col-md-4 form-group  mb-4">
+              <div (click)="checked7() " [style.background]="clicked7?'#18DABF':'#fff'"
+                   [style.color]="clicked7?'white':'#8C8C8C'" class="buttonCategorie">Paysage
+              </div>
+            </div>
+            <div class="col-md-4 form-group  mb-4">
+              <div (click)="checked8() " [style.background]="clicked8?'#18DABF':'#fff'"
+                   [style.color]="clicked8?'white':'#8C8C8C'" class="buttonCategorie">Portrait
+              </div>
+            </div>
+            <div class="col-md-4 form-group  mb-4">
+              <div (click)="checked9()" [style.background]="clicked9?'#18DABF':'#fff'"
+                   [style.color]="clicked9?'white':'#8C8C8C'" class="buttonCategorie">Carré
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row justify-content-end">
+            <!--   <button type="submit" class="buttonProchain" value="Prochain" (click)="div2Function()">Prochain</button>-->
+            <!-- <input type="submit" class="buttonProchain" value="Prochain"  (click)="onSubmit(f)"> -->
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+              <input class="buttonProchain" style="width: 100%"
+                     type="submit" value="Valider">
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!--
+<section *ngIf="div3" style="background: #FAFBFF 0% 0% no-repeat padding-box;">
+  <div class="container" style="padding: 5% 0%;">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Vendre votre contenu</h3>
+        <p class="vendrecontenu">
+          Vecteurs<br>
+          EPS et un fichier d'aperçu JPG (du même nom) entre 0,5 Mo et 80 Mo <br>
+          Les fichiers d'aperçu doivent être compris entre 2 000 px et 10 000 px sur l'un des côtés.<br>
+          Couleur RVB<br><br>
+          DSP<br>
+          PSD entre 1,5 Mo et 250 Mo et un fichier d'aperçu JPG (avec le même nom et une taille de fichier entre 0,5 Mo et 80 Mo)<br>
+          Les fichiers d'aperçu doivent être compris entre 2 000 px et 10 000 px sur l'un des côtés.<br>
+          Couleur : sRVB, Adobe RVB, Prophoto RVB ou P3<br><br>
+          Photos<br>
+          Seuls les fichiers JPG Plus de 0,5 Mo, jusqu'à 80 Mo<br>
+          Les photos doivent être comprises entre 2000px et 10000px sur l'un des côtés.<br>
+          Couleur : sRVB, Adobe RVB, Prophoto RVB ou P3
+        </p>
+      </div>
+      <div class="col-sm-6" style="background: #FAFBFF 0% 0% no-repeat padding-box;box-shadow: 0px 3px 6px #00000029;opacity: 1;">
+        <section>
+        <h4>Télécharger une série d'images photographiée</h4>
+        <div class="row" style="margin-right: 10%; margin-left: 10%;">
+          <label class="file btn btn-lg "><i class="bi bi-download" style="font-size: 1.3rem;"></i>
+            &nbsp;&nbsp;&nbsp; Images photographiées <input type="file" hidden>
+          </label>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          <h4 style="text-align: center;">Ou bien</h4>
+          <br>
+          <br>
+          <p style="text-align: center">Télécharger votre fichier sous différentes formats</p>
+          <div class="row">
+            <div class="col-xl-4 col-lg-6 col-sm-12 mb-4">
+              <label class="file btn btn-lg " style="width: 100%;"><i class="bi bi-download" style="font-size: 1.3rem;"></i>
+                &nbsp;&nbsp; PNG <input type="file" hidden>
+              </label>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-sm-12 mb-4">
+              <label class="file btn btn-lg " style="width: 100%;"><i class="bi bi-download" style="font-size: 1.3rem;"></i>
+                &nbsp;&nbsp; EPS <input type="file" hidden>
+              </label>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-sm-12 mb-4">
+              <label class="file btn btn-lg " style="width: 100%;"><i class="bi bi-download" style="font-size: 1.3rem;"></i>
+                &nbsp;&nbsp; SVG <input type="file" hidden>
+              </label>
+            </div>
+
+          </div>
+
+        </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+</section>
+-->

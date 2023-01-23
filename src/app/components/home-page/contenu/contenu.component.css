@@ -1,0 +1,23 @@
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 50px;
+    left: auto;
+  padding-bottom: 35px;
+    color: #afe321;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 0px;
+    right: auto;
+  padding-bottom: 35px;
+    color: #afe321;
+}
+.swiper-h4{
+  margin-left: 40px;
+  margin-bottom: 0px;
+  width: 200px;
+  text-align: center;
+  font: normal normal bold 28px/35px 'Quicksand', sans-serif;
+  letter-spacing: 0px;
+  color: #5521E3;
+  opacity: 1;
+  font-weight: 100;
+}

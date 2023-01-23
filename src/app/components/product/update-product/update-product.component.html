@@ -1,0 +1,205 @@
+
+<section style="background: #FAFBFF 0% 0% no-repeat padding-box;" *ngIf=" showAdminBoard || isLoggedIn">
+  <div class="container" style="padding: 5% 0%;">
+    <form  [formGroup]="updateProductForm" (ngSubmit)="onSubmit()" novalidate role="form" class="email-form">
+    <div class="row">
+<!--      <div class="col-xl-5 col-lg-12 col-sm-12 col-xs-12">
+        <div class="mb-3">
+          <input type="file" id="upload" #inputImage accept="image/*"  name="image" (change)="onFileChange('image')" hidden/>
+          <label
+            style="cursor: pointer;
+                    border: dashed 2px #C0C0C0;
+                     padding: 0px"
+            for="upload">
+            <img
+              style="max-width: 500px;"
+              [src] = "imageURL">
+          </label>
+        </div>
+        <p style="margin-right: 120px;text-align: left;font: normal normal normal 20px/24px 'Montserrat', sans-serif;color: #C0C0C0;">
+          Choisissez une image Thumbnail pour votre contenu Cette image va être affiché sur la plateforme</p>
+
+      </div>-->
+      <div class="col-xl-5 col-lg-12 col-sm-12 col-xs-12">
+        <div class="mb-3">
+          <!--     <input type="file" id="upload" accept="image/*" (change)="onFileSelected({event : $event})" hidden/> -->
+          <label
+            style="cursor: pointer;
+                    border: dashed 2px #C0C0C0;
+                     padding: 0px"
+            for="upload">
+            <img
+
+              [src]="imageURL">
+          </label>
+
+          <!--   <button type="file" style="border: dashed 2px #C0C0C0; padding: 0px"></button>-->
+        </div>
+        <p style="text-align: left;font: normal normal normal 20px/24px 'Montserrat', sans-serif;color: #C0C0C0;">
+          Choisissez une image Thumbnail pour votre contenu Cette image va être affiché sur la plateforme</p>
+        <input type="file" id="upload"  #inputImage  accept="image/*"  name="image"  (change)="onFileChange('image')" hidden/>
+        <div class="row justify-content-center" style="width:80%">
+          <button type="button" class="loadImage"   (click)="inputImage.click();" style="width:80%">
+            <i class="bi bi-download"></i>
+            Changer l'image
+          </button>
+
+        </div>
+
+        <!--<input  type="button" class="loadImage" (click)="inputImage.click();" value="Changer l'image">-->
+      </div>
+      <div class="col-xl-7 col-lg-12 col-sm-12 col-xs-12">
+
+        <!-- name text -->
+        <div class="form-group mb-3">
+          <input type="text" class ="form-control"
+                 name="nameP"
+                 formControlName="nameP" style="height: 60px">
+        </div>
+        <!-- description textarea -->
+        <div class="form-group mb-3">
+          <textarea type="text" class ="form-control" id = "description"
+                 name="descriptionP"
+                    formControlName="descriptionP"></textarea>
+        </div>
+        <!-- style dropdown -->
+        <div class="row form-group mb-3 ">
+          <div class="btn-group">
+            <select class="form-select" aria-label="Default select example" style=" border: 1px solid #C0C0C0;"  >
+              <option *ngFor="let sg of styleGraph" [value]="sg.Name" [selected]="sg.Name === styleSelected">{{sg.Name}}</option>
+            </select>
+          </div>
+<!--          <br>
+          <p>Le style selectionné est :  {{styleSelected}}</p>-->
+        </div>
+        <!-- color dropdown -->
+        <div class="row form-group mb-3">
+          <div class="btn-group">
+            <select class="form-select" aria-label="Default select example" style=" border: 1px solid #C0C0C0;">
+              <option *ngFor="let c of couleur" [value]="c.Name" [selected]="c.Name === colorSelected" >{{c.Name}}</option>
+            </select>
+          </div>
+<!--          <br>
+          <p>Couleur selectionné est :  {{colorSelected}}</p>-->
+        </div>
+        <!-- categorie -->
+        <div class="row form-group mb-3">
+          <div  class="row form-group mt-3 mt-md-0 mb-3">
+            <h3>Catégorie</h3>
+          </div>
+          <!-- vector button upload file -->
+          <div  class="col-md-4 form-group mt-3 mt-md-0 mb-3">
+            <div class="buttonCategorie form-control" [style.background]="clicked1?'#18DABF':'#fff'" [style.color]="clicked1?'white':'#8C8C8C'">
+              <input  #inputVector (change)="onFileChange('vector')"
+                type="file"
+                id="uploadV"
+                accept="image/jpeg"hidden/>
+              <label
+                style="cursor: pointer;padding: 0px;    width: inherit; text-align: center;"
+                for="uploadV">
+                Vecteur
+              </label>
+
+            </div>
+          </div>
+          <!-- pdf button upload file -->
+          <div  class="col-md-4 form-group mt-3 mt-md-0 mb-3">
+            <div  class="buttonCategorie form-control" [style.background]="clicked2?'#18DABF':'#fff'" [style.color]="clicked2?'white':'#8C8C8C'">
+              <input  #inputPDF (change)="onFileChange('pdf')"
+                type="file"
+                id="uploadF"
+                accept="application/pdf"  hidden/>
+              <label
+                style="cursor: pointer;padding: 0px;    width: inherit; text-align: center;"
+                for="uploadF">
+                PDF
+              </label>
+            </div>
+          </div>
+          <!-- icons button upload file -->
+          <div  class="col-md-4 form-group mt-3 mt-md-0 mb-3">
+            <div   class="buttonCategorie form-control" [style.background]="clicked3?'#18DABF':'#fff'" [style.color]="clicked3?'white':'#8C8C8C'" >
+
+              <label
+                style="cursor: pointer;padding: 0px;    width: inherit; text-align: center;"
+                for="uploadI">
+                <input  #inputIcon (change)="onFileChange('icon')" type="file" id="uploadI" accept="image/jpeg" hidden/>
+                Icons
+              </label>
+            </div>
+          </div>
+          <!-- eps button upload file -->
+          <div  class="col-md-4 form-group mt-3 mt-md-0 mb-3">
+            <div   class="buttonCategorie form-control" [style.background]="clicked4?'#18DABF':'#fff'" [style.color]="clicked4?'white':'#8C8C8C'">
+              <input  #inputEps (change)="onFileChange('eps')" type="file" id="uploadEPS" accept="image/jpeg" hidden/>
+              <label
+                style="cursor: pointer;padding: 0px;    width: inherit; text-align: center;"
+                for="uploadEPS">
+                EPS
+              </label>
+            </div>
+          </div>
+          <!-- svg button upload file -->
+          <div  class="col-md-4 form-group mt-3 mt-md-0 mb-3">
+            <div  class="buttonCategorie form-control" [style.background]="clicked5?'#18DABF':'#fff'" [style.color]="clicked5?'white':'#8C8C8C'">
+              <input  #inputSVG (change)="onFileChange('svg')" type="file" id="uploadSVG" accept="image/svg+xml" hidden/>
+              <label
+                style="cursor: pointer;padding: 0px;    width: inherit; text-align: center;"
+                for="uploadSVG">
+                SVG
+              </label>
+            </div>
+          </div>
+          <!-- png button upload file -->
+          <div  class="col-md-4 form-group mt-3 mt-md-0 mb-3">
+            <div   class="buttonCategorie form-control" [style.background]="clicked6?'#18DABF':'#fff'" [style.color]="clicked6?'white':'#8C8C8C'">
+              <input  #inputPNG (change)="onFileChange('png')" type="file" id="uploadPNG" accept="image/png" hidden/>
+              <label style="cursor: pointer;padding: 0px;    width: inherit; text-align: center;" for="uploadPNG">
+                PNG
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- format -->
+        <div class="row form-group mb-3">
+
+          <div  class="row form-group mt-3 mt-md-0 mb-3">
+            <h3>Format</h3>
+          </div>
+          <div  class="col-md-4 form-group mt-3 mt-md-0 mb-3">
+            <div class="buttonCategorie form-control"   [style.background]="clicked7?'#18DABF':'#fff'" [style.color]="clicked7?'white':'#8C8C8C'"  style="cursor: pointer; text-align: center;" (click)="checked7() ">Paysage</div>
+          </div>
+          <div  class="col-md-4 form-group mt-3 mt-md-0 mb-3">
+            <div  class="buttonCategorie form-control"  [style.background]="clicked8?'#18DABF':'#fff'" [style.color]="clicked8?'white':'#8C8C8C'"  style="cursor: pointer;text-align: center;" (click)="checked8() " >Portrait</div>
+          </div>
+          <div  class="col-md-4 form-group mt-3 mt-md-0 mb-3">
+            <div   class="buttonCategorie form-control" [style.background]="clicked9?'#18DABF':'#fff'" [style.color]="clicked9?'white':'#8C8C8C'"  style="cursor: pointer; text-align: center;" (click)="checked9() " >Carré</div>
+          </div>
+
+        </div>
+
+        <!--<div class="row form-group">
+          <button  type="submit"  class="buttonCategorie form-control"  style="cursor: pointer; text-align: center;background: #5521E3 0% 0% no-repeat padding-box;
+box-shadow: 0px 3px 6px #00000029; color: white"  >Valider</button>
+          &lt;!&ndash;<input type="submit" class="buttonProchain" value="Prochain"  >&ndash;&gt;
+        </div>-->
+        <div class="row justify-content-end">
+          <!--   <button type="submit" class="buttonProchain" value="Prochain" (click)="div2Function()">Prochain</button>-->
+          <!-- <input type="submit" class="buttonProchain" value="Prochain"  (click)="onSubmit(f)"> -->
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12"><input  type="submit" class="buttonValidate" value="Valider"></div>
+
+        </div>
+
+      </div>
+    </div>
+    </form>
+
+  </div>
+</section>
+
+
+
+
+
+
+

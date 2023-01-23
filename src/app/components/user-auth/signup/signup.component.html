@@ -1,0 +1,130 @@
+<main id="main">
+    <section id="contact" class="contact " style="background-color:  #FAFBFF;">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+            <div class="row" style=" margin: 10% 5%;">
+                <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="../../assets/img/Groupe de masques 90.png" class="img-fluid" alt="" style="width: 75%;">
+                </div>
+                <div class="col-lg-8">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link " type="button"  aria-selected="false">
+                                <a class="sign-in scrollto" routerLink="/signin" routerLinkActive=""
+                                    ariaCurrentWhenActive="page" style="color: #000000; text-decoration: none; font-size: 20px;font-weight: bold;">Se connecter</a>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                aria-controls="profile-tab-pane" aria-selected="true" style="background-color: #FAFBFF;">
+                                <a class="sign-in scrollto" routerLink="/signup" routerLinkActive=""
+                                    ariaCurrentWhenActive="page" style="color: #000000; text-decoration: none; font-size: 20px; font-weight: bold;">S'inscrire</a></button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                            tabindex="0">
+
+                          <form *ngIf="!isSuccessful" [formGroup]="SignupForm" (ngSubmit)="onSubmitForm()" novalidate role="form" class="email-form"
+                                style="background-color: #FAFBFF;">
+
+                            <div class="row">
+                              <h1 style="color: #111F58;">Créer un compte</h1>
+
+                              <div class="row" style="padding-bottom: 15px">
+                                <div class="col-md-6 form-group  mt-3 mt-md-0">
+                                  <div
+                                    style="text-align: center!important; width: 100%; background: #DD4B39 0% 0% no-repeat padding-box; padding: 2% 3%; border-radius: 9px;">
+                                    <a class="sign-in scrollto" routerLink="/" routerLinkActive=""
+                                       ariaCurrentWhenActive="page"
+                                       style="color: #FFFFFF; text-decoration: none; font-size: 20px; font-weight: bold;">Google</a>
+                                  </div>
+                                </div>
+                                <div class="col-md-6 form-group  mt-3 mt-md-0 ">
+                                  <div
+                                    style="text-align: center!important; width: 100%; background: #3B5998 0% 0% no-repeat padding-box; padding: 2% 3%; border-radius: 9px;">
+                                    <a class="sign-in scrollto" routerLink="/" routerLinkActive=""
+                                       ariaCurrentWhenActive="page" style="color: #FFFFFF; text-decoration: none; font-size: 20px;  font-weight: bold;">Facebook</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12 form-group mb-4">
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    id="name"
+                                    placeholder="Nom et prénom"
+                                    required
+                                    name="name"
+                                    #name
+                                    formControlName="name"
+                                    [ngClass]="{ 'is-invalid': submitted && form['name'].errors }"/>
+                                  <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
+                                    <div *ngIf="form['name'].errors['required']">Nom et prénom requise</div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12 form-group mb-4">
+                                  <input
+                                    type="email"
+                                    name="email"
+                                    required
+                                    #email
+                                    formControlName="email"
+                                    class="form-control"
+                                    id="email"
+                                    placeholder="email"
+                                    required
+                                    [ngClass]="{ 'is-invalid': submitted && form['email'].errors }"
+                                  />
+                                  <div *ngIf="submitted && form['email'].errors" class="invalid-feedback">
+                                    <div *ngIf="form['email'].errors['required']">Email requise</div>
+                                    <div *ngIf="form['email'].errors['email']">Email doit etre valide</div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12 form-group mb-4">
+                                  <input
+                                    type="password"
+                                    class="form-control"
+                                    id="password"
+                                    placeholder="mot de passe"
+                                    name="password"
+                                    password
+                                    #password
+                                    formControlName="password"
+                                    required
+                                    [ngClass]="{ 'is-invalid': submitted && form['password'].errors }"/>
+                                  <div *ngIf="submitted && form['password'].errors" class="invalid-feedback">
+                                    <div *ngIf="form['password'].errors['required']">Password is required</div>
+                                    <div *ngIf="form['password'].errors['minlength']">Password must be at least 6 characters</div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12 form-group mb-4">
+                                  <button  type="submit"  style="background: #E4E4E4 0% 0% no-repeat padding-box;
+                                                                  box-shadow: 0px 3px 6px #00000029;
+                                                                  border-radius: 9px;
+                                                                  opacity: 1; text-align: center;
+                                            font: normal normal normal 23px/28px 'Montserrat', sans-serif;
+                                            letter-spacing: 0px;
+                                            color: #A6A6A6;
+                                            opacity: 1;">S'inscrire</button>
+                                </div>
+                                <div class="alert alert-warning" *ngIf="submitted && isSignUpFailed">
+                                  Signup failed!<br />{{errorMessage}}
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </form>
+
+                          <div class="alert alert-success" *ngIf="isSuccessful">
+                            Your registration is successful!
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

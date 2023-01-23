@@ -1,0 +1,173 @@
+<section class=" align-items-center" id="hero" style="
+padding-bottom: 10px;
+">
+  <div class="container-fluid aos-init aos-animate pt-5" data-aos="fade-up">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-lg-12 pt-3  d-flex flex-column justify-content-center"
+           data-aos="fade-up" data-aos-duration="1000">
+        &nbsp;
+
+        <h1 data-aos="fade-up">
+          <img  class="imgStar" src="../../../../assets/img/images/star.svg" >
+          Par les
+          <span class="creativeSpan1">créatifs</span>
+          , pour les
+          <span class="creativeSpan2"> créatifs</span>
+          <img class="imgLine" src="../../../../assets/img/images/line.svg" >
+        </h1>
+        &nbsp;
+        <p class="mb-4" data-aos="fade-up" style="text-align: center;
+        font: normal normal normal 19px/25px 'Quicksand', sans-serif;
+        letter-spacing: 0px;
+        color: #000000;
+        opacity: 1;">
+          La première banque d'image Tunisienne qui offre un contenu design
+          <br>
+          représentant notre identité et toute la région Mena.
+        </p>
+        &nbsp;
+      </div>
+    </div>
+    <div class="container aos-init aos-animate pb-5" >
+      <div [formGroup]="searchProductForm" class="row justify-content-center" data-aos="fade-up"
+           data-aos-duration="1000">
+        <div (input)="getProductByName(searchValue.value, selectValue.value)" class="custom-search">
+          <input #searchValue class="custom-search-input" formControlName="searchValue"
+                 id="searchValue"
+                 name="searchValue"
+                 placeholder="Recherches des illustrations"
+                 style=" box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;  border: 0px;"
+                 type="text">
+          <div class=" custom-search-botton">
+            <select #selectValue aria-label="Default select example"
+                    class="form-select btn "
+                    formControlName="selectValue"
+                    id="selectValue">
+              <option *ngFor="let g of category" [style.background-color]="'white'" [value]="g.val">{{g.Name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!--      <div class="row justify-content-center " data-aos="fade-up" data-aos-duration="1000" style="display: none;">
+
+              <h5 style="margin: 15px 10px; width: 165px">Trending : </h5>
+
+              <button class="links"><a style=" color: black;
+      text-decoration: none; " href="#">Ramadan</a></button>
+              <button class="links"><a style=" color: black;
+      text-decoration: none; " href="#">Choufli hal</a></button>
+              <button class="links"><a style=" color: black;
+      text-decoration: none; " href="#">Mock up</a></button>
+              <button class="links"><a style=" color: black;
+      text-decoration: none; " href="#">Logo</a></button>
+
+
+            </div>-->
+    </div>
+    <div class="container aos-init aos-animate pb-5" data-aos="fade-up">
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="1000">
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-3 col-6 mb-3">
+          <div class="text-center" style=" cursor: pointer;">
+            <a class="read-more" data-bs-target="#exampleModal" data-bs-toggle="modal"
+               style="text-decoration: none;"><img alt="..."
+                                                   class="rounded-circle mb-4"
+                                                   src="../../../../assets/img/images/Groupe%20de%20masques%2035.png"
+                                                   style="width:100px; height: 100px;box-shadow: 0px 3px 6px #00000029;">
+              <figcaption class="figure-caption">vector</figcaption>
+              <i class="bi bi-long-arrow-right"></i></a>
+
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-3 col-6 mb-3">
+          <div class="text-center" style=" cursor: pointer;">
+            <a class="read-more" data-bs-target="#exampleModal" data-bs-toggle="modal"
+               style="text-decoration: none;"><img alt="..."
+                                                   class="rounded-circle mb-4"
+                                                   src="../../../../assets/img/images/Groupe%20de%20masques%2035.png"
+                                                   style="width:100px; height: 100px;box-shadow: 0px 3px 6px #00000029;">
+              <figcaption class="figure-caption">Illustrations</figcaption>
+              <i class="bi bi-long-arrow-right"></i></a>
+
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-3 col-6 pt-3 pt-lg-0">
+          <div class="text-center" style=" cursor: pointer;">
+            <a class="read-more" data-bs-target="#exampleModal" data-bs-toggle="modal"
+               style="text-decoration: none;"><img alt="..."
+                                                   class="rounded-circle mb-4"
+                                                   src="../../../../assets/img/images/Groupe%20de%20masques%2037.png"
+                                                   style="width:100px; height: 100px;box-shadow: 0px 3px 6px #00000029;">
+              <figcaption class="figure-caption">Photos</figcaption>
+              <i class="bi bi-long-arrow-right"></i></a>
+
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-3 col-6 mb-3">
+          <div class="text-center" style=" cursor: pointer;">
+            <a class="read-more" data-bs-target="#exampleModal" data-bs-toggle="modal"
+               style="text-decoration: none;"><img alt="..."
+                                                   class="rounded-circle mb-4"
+                                                   src="../../../../assets/img/images/Groupe%20de%20masques%2039.png"
+                                                   style="width:100px; height: 100px;box-shadow: 0px 3px 6px #00000029;">
+              <figcaption class="figure-caption">Mock up</figcaption>
+              <i class="bi bi-long-arrow-right"></i></a>
+
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-3 col-6 mb-3">
+          <div class="text-center" style=" cursor: pointer;">
+            <a class="read-more" data-bs-target="#exampleModal" data-bs-toggle="modal"
+               style="text-decoration: none;"><img alt="..."
+                                                   class="rounded-circle mb-4"
+                                                   src="../../../../assets/img/images/Groupe%20de%20masques%2040.png"
+                                                   style="width:100px; height: 100px;box-shadow: 0px 3px 6px #00000029;">
+              <figcaption class="figure-caption">Line Art</figcaption>
+              <i class="bi bi-long-arrow-right"></i></a>
+
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-3 col-6 mb-3">
+          <!-- <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">-->
+          <div class="text-center" style=" cursor: pointer;">
+            <a class="read-more" data-bs-target="#exampleModal" data-bs-toggle="modal"
+               style="text-decoration: none;"><img alt="..."
+                                                   class="rounded-circle mb-4"
+                                                   src="../../../../assets/img/images/Groupe%20de%20masques%2075.png"
+                                                   style="width:100px; height: 100px;box-shadow: 0px 3px 6px #00000029;">
+              <figcaption class="figure-caption">Flyer</figcaption>
+              <i class="bi bi-long-arrow-right"></i></a>
+
+          </div>
+          <!--</button>-->
+
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+  <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal"
+       style="display: none;"
+       tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="text-center mb-3">
+              <label class="col-form-label">Coming soon</label>
+
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

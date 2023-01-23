@@ -1,0 +1,43 @@
+<section *ngIf=" showAdminBoard">
+  <div class="container-fluid" style="overflow-x:auto;">
+    <table class="table pt-3 " id="contributeur" style="box-shadow: 0px 3px 6px #00000029;border-radius: 17px;    font-family: 'montserrat' , sans-serif;">
+      <thead>
+      <tr style="color: #BDA5FF">
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Nationalité</th>
+        <th scope="col">Date de naissance</th>
+        <th scope="col">Occupation</th>
+        <th scope="col">numéro telephone</th>
+        <th scope="col">email</th>
+        <th scope="col">envie</th>
+        <th scope="col">lien dribbble</th>
+        <th scope="col">lien behance</th>
+        <th scope="col">lien facebook</th>
+        <th scope="col">lien linkedin</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of Contributeurs">
+        <th scope="row">{{c.idC}}</th>
+        <td>{{c.nameC}}</td>
+        <td>{{c.nationalityC}}</td>
+        <td>{{c.birthDayC}}</td>
+        <td>{{c.occupationC}}</td>
+        <td>{{c.phoneNumberC}}</td>
+        <td>{{c.emailC}}</td>
+        <td>{{c.decision}}</td>
+
+        <td><a href="{{c.linkDribble}}" target="_blank" rel="noopener noreferrer">dribbble</a></td>
+        <td><a href="{{c.linkBehance}}" target="_blank" rel="noopener noreferrer">behance</a></td>
+        <td><a href="{{c.linkLinkedin}}" target="_blank" rel="noopener noreferrer">Linkedin</a></td>
+        <td><a href="{{c.linkFacebook}}" target="_blank" rel="noopener noreferrer">Facebook</a></td>
+
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</section>
+

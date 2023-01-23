@@ -1,0 +1,153 @@
+@media (min-width: 1200px) {
+
+  .section1{
+    margin-bottom: 0px;
+    text-align: left;
+    font: normal normal normal 70px/80px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #18DABF;
+  }
+
+  .section2{
+    text-align: left;
+    font: normal normal normal 70px/80px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #5521E3;
+  }
+  .imgStar{
+    width: 73px;
+    height: 80px;
+    float: right;
+  }
+  .imgLine{
+    width: 73px;
+    height: 80px;
+  }
+  .description{
+    font: normal normal normal 30px/38px 'Quicksand', sans-serif;
+    letter-spacing: 0px;
+    margin-right: 10%;
+  }
+}
+@media (max-width: 991px) {
+  .section1{
+    margin-bottom: 0px;
+    text-align: left;
+    font: normal normal normal 70px/80px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #18DABF;
+  }
+
+  .section2{
+    text-align: left;
+    font: normal normal normal 70px/80px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #5521E3;
+  }
+  .imgStar{
+    width: 73px;
+    height: 80px;
+    float: right;
+  }
+  .imgLine{
+    width: 73px;
+    height: 80px;
+  }
+  .description{
+    font: normal normal normal 30px/38px 'Quicksand', sans-serif;
+    letter-spacing: 0px;
+
+  }
+
+}
+@media (max-width: 768px) {
+  .section1{
+    margin-bottom: 0px;
+    text-align: left;
+    font: normal normal normal 40px/50px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #18DABF;
+  }
+
+  .section2{
+    text-align: left;
+    font: normal normal normal 40px/50px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #5521E3;
+  }
+  .imgStar{
+    width: 37px;
+    height: 40px;
+    float: right;
+  }
+  .imgLine{
+    width: 37px;
+    height: 40px;
+  }
+  .description{
+    font: normal normal normal 22px/22px 'Quicksand', sans-serif;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 575px) {
+  .section1{
+    margin-bottom: 0px;
+    text-align: left;
+    font: normal normal normal 40px/50px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #18DABF;
+  }
+
+  .section2{
+    text-align: left;
+    font: normal normal normal 40px/50px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #5521E3;
+  }
+  .imgStar{
+    width: 37px;
+    height: 40px;
+    float: right;
+  }
+  .imgLine{
+    width: 37px;
+    height: 40px;
+  }
+  .description{
+    font: normal normal normal 22px/22px 'Quicksand', sans-serif;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 575px), (max-height: 600px) {
+
+  .section1{
+    margin-bottom: 0px;
+    text-align: left;
+    font: normal normal normal 40px/50px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #18DABF;
+  }
+
+  .section2{
+    text-align: left;
+    font: normal normal normal 40px/50px 'Ghaitsa', sans-serif;
+    letter-spacing: 0px;
+    color: #5521E3;
+  }
+  .imgStar{
+    width: 37px;
+    height: 40px;
+    float: right;
+  }
+  .imgLine{
+    width: 37px;
+    height: 40px;
+  }
+  .description{
+    font: normal normal normal 22px/22px 'Quicksand', sans-serif;
+    letter-spacing: 0px;
+  }
+}
+
+
+

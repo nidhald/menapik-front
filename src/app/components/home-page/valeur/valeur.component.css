@@ -1,0 +1,15 @@
+.h3{
+text-align: center;
+  font: normal normal normal 42px/47px  'Ghaitsa', sans-serif;
+  letter-spacing: 0px;
+  color: #5521E3;
+  opacity: 1;
+}
+.sectionP{
+  text-align: center;
+  font: normal normal normal 22px/27px 'Monserrat bold', sans-serif;
+  letter-spacing: 0px;
+  color: #8C8C8C;
+  opacity: 1;
+  margin: 0px 30px;
+}

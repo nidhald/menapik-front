@@ -1,0 +1,23 @@
+p {
+  font-family: Lato;
+}
+
+a {
+  position: relative;
+}
+
+.overlay-icon {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  background: #fffc;
+  text-align: center;
+  color: black;
+
+}
+
+.hide {
+  display: none;
+}

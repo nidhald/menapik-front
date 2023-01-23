@@ -1,0 +1,150 @@
+<!--<app-hero></app-hero>-->
+<section class="mt-1">
+  <div class="container">
+    <div class="row rowParent">
+      <div class=" col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12 mb-4">
+        <div class="card" style="border-radius: 15px">
+          <img [src]="imageAbsolutUrl" alt="picture" style="max-width: calc((100vh - 184px) * 1.000);; padding: 2%; border-radius: 30px; ">
+        </div>
+
+      </div>
+      <div class=" col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 mb-4">
+        <div class="card" style="border-radius: 15px">
+          <div class="container mt-3">
+
+            <div class="row ">
+              <div class="col-sm-12 mt-md-0 ">
+                <h3>{{product.nameP}}</h3>
+                <p
+                  style="text-align: left;  font: normal normal normal 23px/28px 'Montserrat', sans-serif;  letter-spacing: 0px;  color: #8C8C8C;  opacity: 1;">
+                  {{product.descriptionP}}
+                </p>
+              </div>
+              <div class="col-sm-12  mt-md-0 ">
+                <h3>Design Graphique</h3>
+                <p
+                  style="text-align: left;  font: normal normal normal 23px/28px 'Montserrat', sans-serif;  letter-spacing: 0px;  color: #8C8C8C;  opacity: 1;">
+                  {{product.styleGraphicP}}
+                </p>
+              </div>
+              <!--                    <div  class="col-sm-12  mt-md-0 ">
+                                    <h3>Couleur</h3>
+                                    <p style="text-align: left;  font: normal normal normal 23px/28px 'Montserrat', sans-serif;  letter-spacing: 0px;  color: #8C8C8C;  opacity: 1;">
+                                      {{product.colorP}}
+                                    </p>
+                                  </div>-->
+              <div class="col-sm-12  mt-md-0 ">
+                <h3>Format</h3>
+                <p
+                  style="text-align: left;  font: normal normal normal 23px/28px 'Montserrat', sans-serif;  letter-spacing: 0px;  color: #8C8C8C;  opacity: 1;">
+                  {{product.formatP}}
+                </p>
+              </div>
+            </div>
+            <div class="row ">
+              <!-- categorie -->
+              <div class="row  mb-0">
+                <div class="mt-md-0">
+                  <h3>Catégorie disponible</h3>
+                  <p
+                    style="text-align: left;  font: normal normal normal 23px/28px 'Montserrat', sans-serif;  letter-spacing: 0px;  color: #8C8C8C;  opacity: 1;">
+                    Sélectionnez le format qui vous convient pour passer au téléchargement
+                  </p>
+                </div>
+                <!-- vector button upload file -->
+                <div *ngIf="clicked1" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mb-2">
+                  <button (click)="downLoadFile('vector')" [disabled]="clicked1?false:true"
+                          [style.background]="clicked1?'#18DABF':'#fff'" [style.border]="'0px'"
+                          [style.color]="clicked1?'white':'#8C8C8C'" class="buttonCategorie form-control">
+                    Vecteur
+                  </button>
+                </div>
+                <!-- photos button upload file -->
+                <div *ngIf="clicked2" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mb-2">
+                  <button (click)="downLoadFile('pdf')" [disabled]="clicked2?false:true"
+                          [style.background]="clicked2?'#18DABF':'#fff'" [style.border]="'0px'"
+                          [style.color]="clicked2?'white':'#8C8C8C'" class="buttonCategorie form-control">
+                    PDF
+                  </button>
+                </div>
+                <!-- icons button upload file -->
+                <div *ngIf="clicked3" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mb-2">
+                  <button (click)="downLoadFile('icon')" [disabled]="clicked3?false:true"
+                          [style.background]="clicked3?'#18DABF':'#fff'" [style.border]="'0px'"
+                          [style.color]="clicked3?'white':'#8C8C8C'" class="buttonCategorie form-control">
+                    Icons
+                  </button>
+                </div>
+                <!-- eps button upload file -->
+                <div *ngIf="clicked4" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mb-2">
+                  <button (click)="downLoadFile('eps')" [disabled]="clicked4?false:true"
+                          [style.background]="clicked4?'#18DABF':'#fff'" [style.border]="'0px'"
+                          [style.color]="clicked4?'white':'#8C8C8C'" class="buttonCategorie form-control">
+                    EPS
+                  </button>
+                </div>
+                <!-- svg button upload file -->
+                <div *ngIf="clicked5" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mb-2">
+                  <button (click)="downLoadFile('svg')" [disabled]="clicked5?false:true"
+                          [style.background]="clicked5?'#18DABF':'#fff'" [style.border]="'0px'"
+                          [style.color]="clicked5?'white':'#8C8C8C'" class="buttonCategorie form-control">
+                    SVG
+                  </button>
+                </div>
+                <!-- png button upload file -->
+                <div *ngIf="clicked6" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mb-2">
+                  <button (click)="downLoadFile('png')" [disabled]="clicked6?false:true"
+                          [style.background]="clicked6?'#18DABF':'#fff'" [style.border]="'0px'"
+                          [style.color]="clicked6?'white':'#8C8C8C'" class="buttonCategorie form-control">
+                    PNG
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="downloadZip" class=" mb-4">
+              <p
+                style="text-align: left;  font: normal normal normal 23px/28px 'Montserrat', sans-serif;  letter-spacing: 0px;  color: #8C8C8C;  opacity: 1;">
+                Télécharger les fichiers sélectionnés
+              </p>
+              <div class="col-12 mb-4">
+                <button (click)="downloadAsZip()"
+                        class="buttonCategorie form-control"
+                        style="text-align: center;  font: normal normal bold 29px/35px 'Montserrat', sans-serif;  letter-spacing: 0px;  color: #FFFFFF;  opacity: 1; background-color:#18DABF; border: 0px">
+                  <i class="bi bi-download"></i>Téléchargement
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<div class="container-fluid">
+  <div class="col-xl-12">
+    <div class="row">
+      <section class=" section-bg" id="creation" style="  background: #FAFBFF 0% 0% no-repeat padding-box;">
+        <h2 style="text-align: center;    margin-bottom: 2rem;
+        font: normal normal 600 27px/33px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+       color: #8C8C8C;
+        opacity: 1;"> illustration de meme style</h2>
+        <div class="row">
+          <div *ngFor="let p of productIllustration  | paginate: { itemsPerPage: 8, currentPage: cp }; let i = index"
+               class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 aos-init aos-animate" style="cursor: pointer;">
+            <p (click)="goToProduct(p.id)" (mouseenter)="hoverIdx = i" (mouseleave)="hoverIdx = -1">
+              <span [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== i }">{{ p.nameP }}</span>
+              <img [alt]="p.descriptionP" [src]="p.imageP"
+                   class="image" loading="lazy" style=" height: -webkit-fill-available; width: -webkit-fill-available;">
+            </p>
+          </div>
+          <pagination-controls (pageChange)="cp = $event" *ngIf="productIllustration.length > 8" class="justify-content-center"
+                               style=" display: flex;"></pagination-controls>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

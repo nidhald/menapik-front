@@ -1,0 +1,107 @@
+<main id="main">
+  <section id="contact" class="contact " style="background-color:  #FAFBFF;">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+      <div class="row" style=" margin: 10% 5%;">
+        <div class="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="150">
+          <img src="../../assets/img/Groupe de masques 90.png" class="img-fluid" alt="" style="width: 75%;">
+        </div>
+
+        <div class="col-lg-8">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="background-color: #FAFBFF;">
+                <a class="sign-in scrollto" routerLink="/signin" routerLinkActive="" ariaCurrentWhenActive="page" style="color: #000000; text-decoration: none; font-size: 20px;
+                font-weight: bold;">Se connecter</a>
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" type="button" >
+                <a class="sign-in scrollto" routerLink="/signup" routerLinkActive="" ariaCurrentWhenActive="page" style="color: #000000; text-decoration: none; font-size: 20px;
+                font-weight: bold;">S'inscrire</a></button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+              tabindex="0">
+                      <form [formGroup]="SignInForm" (ngSubmit)=connect() method="post" role="form"  class="email-form"
+                    style="background-color: #FAFBFF;">
+
+                <div class="row">
+                  <h1 style="color: #111F58;">Connecter vous à votre compte</h1>
+
+                  <div class="row" style="padding-bottom: 15px">
+                    <div class="col-md-6 form-group  mt-3 mt-md-0">
+                      <button *ngIf="isLoginFailed" type="button" class=" sign-in scrollto ggleButton" (click)="signInWithGoogle()">
+                        Google
+                      </button>
+
+                    </div>
+                    <div class="col-md-6 form-group  mt-3 mt-md-0 ">
+                      <button *ngIf="isLoginFailed" type="button" class=" sign-in scrollto fbButton" (click)="signInWithFB()">
+                        Facebook
+                      </button>
+<!--                      <button class="fbButton">
+                        <a class="sign-in scrollto" (click)="signInWithFB()"
+                           style="color: #FFFFFF; text-decoration: none; font-size: 20px;
+                          font-weight: bold;">Facebook</a>
+                      </button>-->
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <input
+                        type="email"
+                        name="email"
+                        #email
+                        formControlName="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="email"
+                        required
+                        [ngClass]="{ 'is-invalid': submitted && form['email'].errors }"/>
+                      <div *ngIf="submitted && form['email'].errors" class="invalid-feedback">
+                        <div *ngIf="form['email'].errors['required']">Email requise</div>
+                        <div *ngIf="form['email'].errors['email']">Email doit etre valide</div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 form-group " style="padding-top: 15px">
+                      <input
+                        type="password"
+                        #password
+                        formControlName="password"
+                        class="form-control"
+                        name="password"
+                        id="password"
+                        placeholder="mot de passe"
+                        required
+                        [ngClass]="{ 'is-invalid': submitted && form['password'].errors }"/>
+                      <div *ngIf="submitted && form['password'].errors" class="invalid-feedback">
+                        <div *ngIf="form['password'].errors['required']">Password is required</div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 form-group mb-4" style="padding-top: 15px">
+                      <a style="color: black">Mot de passe oublié?</a>
+                    </div>
+                    <div class="col-md-12 form-group " style="padding-top: 15px">
+                      <button type="submit"
+                              class="buttonConnect"
+                              style=" background: #E4E4E4 0% 0% no-repeat padding-box;
+                              color: #A6A6A6;" >Se connecter</button>
+                    </div>
+                    <div class="alert alert-warning" *ngIf="submitted && isLoginFailed">
+                      Signup failed!<br />{{errorMessage}}
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

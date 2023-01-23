@@ -1,0 +1,247 @@
+<section style="background: #FAFBFF 0% 0% no-repeat padding-box; opacity: 1;" >
+  <div class="container" style="padding: 5% 10%;" >
+<!--    <div *ngIf="submitted" class="alert alert-success" role="alert">
+      <h4 class="alert-heading">Well done!</h4>
+      <p>Votre demande est bien prise en compte</p>
+      <br>
+      <p>Notre administrateur va vous contacter dans les plus bref délais</p>
+    </div>-->
+    <div *ngIf="submitted" class="alert alert-success">
+      <strong>Votre demande est bien prise en compte</strong>
+      <br>
+      Notre administrateur va vous contacter dans les plus bref délais
+    </div>
+    <form [formGroup]="contributeurForm"  novalidate role="form" class="email-form">
+      <!--div 1 -->
+      <div *ngIf="div1">
+        <h1 style="text-align: left;
+        font: normal normal 600 75px/92px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #18DABF;
+        opacity: 1;">Hello !</h1>
+        <span style="text-align: left;
+        font: normal normal bold 22px/30px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #C5C5C5">On vous a attendu !</span><br>
+        <p style="text-align: left;
+        font: normal normal normal 22px/30px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #C5C5C5;"> Bienvenue au panel des contributeurs</p>
+        <hr style="width: 100%">
+        <p style="text-align: left;
+        font: normal normal normal 30px/40px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #5521E3;
+        opacity: 1;"> 1 <i class="bi bi-arrow-right"></i> Vous êtes un freelancer en ?</p>
+        <div class="row">
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <button   style="text-align: center!important; width: 100%;padding: 2% 3%; border-radius: 9px; border: 1px solid; color: blue; font-weight: bold;" [style.background]="clicked?'blue':'#fff'" [style.color]="clicked?'white':'blue'"  (click)="checked('Design graphique')">Design graphique</button>
+          </div>
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <button   style="text-align: center!important; width: 100%;  padding: 2% 3%; border-radius: 9px; border: 1px solid; color: blue; font-weight: bold;" [style.background]="clicked1?'blue':'#fff'" [style.color]="clicked1?'white':'blue'"  (click)="checked1('Photographie')" >Photographie</button>
+          </div>
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <button   style="text-align: center!important; width: 100%; padding: 2% 3%; border-radius: 9px; border: 1px solid; color: blue; font-weight: bold;" [style.background]="clicked2?'blue':'#fff'" [style.color]="clicked2?'white':'blue'"  (click)="checked2('Design 3D')">Design 3D</button>
+          </div>
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <button   style="text-align: center!important; width: 100%; padding: 2% 3%; border-radius: 9px; border: 1px solid; color: blue; font-weight: bold;"[style.background]="clicked3?'blue':'#fff'" [style.color]="clicked3?'white':'blue'"  (click)="checked3('illustration')" >Illustration</button>
+          </div>
+          <div  class="col-md-12 form-group mt-3 mt-md-0 mb-4" >
+
+            <button type="button" class="btn " style=""  (click)="div1Function()">Page suivante <i class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+
+      </div>
+      <!--div 2 -->
+      <div *ngIf="div2">
+        <h1 class="suivant">Suivant</h1>
+        <span class="span">On vous a attendu !</span><br>
+        <p class="p1"> Bienvenue au panel des contributeurs</p>
+        <hr style="width: 100%">
+        <p class="p2"> 2 <i class="bi bi-arrow-right"></i> Veuillez insérer vos informations personnelles</p>
+        <div class="row">
+          <div class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <input class="form-control form-control-lg input-div2" type="text" name="nameC"  formControlName="nameC"
+                   placeholder="nom et prénom" >
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <input class="form-control form-control-lg input-div2" type="email" name="emailC"  formControlName="emailC"
+                   placeholder="Adresse Email" >
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <input class="form-control form-control-lg input-div2" type="date" name="birthDayC"  formControlName="birthDayC"
+                   placeholder="Date de naissance" >
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <input class="form-control form-control-lg input-div2" type="text" name="nationalityC"  formControlName="nationalityC"
+                   placeholder="Votre nationnalité" >
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <input class="form-control form-control-lg input-div2" type="text" name="occupationC"  formControlName="occupationC"
+                   placeholder="Votre occupation" >
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <input class="form-control form-control-lg" type="number" name="phoneNumberC"  formControlName="phoneNumberC"
+                   placeholder="Votre numéro de téléphone" style="background: #FFFFFF 0% 0% no-repeat padding-box;
+                                box-shadow: 0px 10px 40px #E2ECF980;
+                                border-radius: 9px;
+                                opacity: 1;">
+          </div>
+
+
+          <div class="col-md-12 form-group mt-3 mt-md-0 mb-4">
+            <button type="button" class="btn " style="float: left "
+                    (click)="div2FunctionRetour()"><i class="bi bi-chevron-left"></i> Retour </button>
+            <button type="button" class="btn " style="float: right"
+                    (click)="div2Function()">Page suivante <i class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <!--div 3 -->
+      <div  *ngIf="div3">
+        <h1 style="text-align: left;
+        font: normal normal 600 75px/92px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #18DABF;
+        opacity: 1;">Suivant</h1>
+        <span style="text-align: left;
+        font: normal normal bold 22px/30px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #C5C5C5">On vous a attendu !</span><br>
+        <p style="text-align: left;
+        font: normal normal normal 22px/30px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #C5C5C5;"> Bienvenue au panel des contributeurs</p>
+        <hr style="width: 100%">
+        <p style="text-align: left;
+        font: normal normal normal 30px/40px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #5521E3;
+        opacity: 1;"> 3 <i class="bi bi-arrow-right"></i> Veuillez nous faire part de votre portefeuille.</p>
+        <div class="row">
+          <div  class="col-md-12 form-group mt-3 mt-md-0 mb-4">
+            <div class="mb-3">
+
+              <input class="form-control form-control-lg" (change)="onFileChange('portfolio')" #inputPortfolio type="file" placeholder="" >
+            </div>
+          </div>
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+
+            <div class="input-group mb-3">
+                    <span class="input-group-text" style="background: #5521E3 0% 0% no-repeat padding-box;"
+                          id="basic-addon5"><i  class="bi bi-behance"></i></span>
+              <input class="form-control form-control-lg" name="linkBehance"   formControlName="linkBehance" type="url" placeholder="Link Behance" >
+            </div>
+          </div>
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+
+            <div class=" input-group mb-3">
+                    <span class="input-group-text" id="basic-addon4"
+                          style="background: #F26798 0% 0% no-repeat padding-box;"><i class="bi bi-dribbble"></i></span>
+              <input class="form-control form-control-lg" name="linkDribble"  formControlName="linkDribble"  type="url" placeholder="Link Dribbble" >
+            </div>
+          </div>
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+
+            <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3"
+                          style="background: #0A66C2 0% 0% no-repeat padding-box;"><i class="bi bi-linkedin"></i></span>
+              <input class="form-control form-control-lg" name="linkLinkedin"   formControlName="linkLinkedin" type="url" placeholder="Link Linkedin" >
+            </div>
+          </div>
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+
+            <div class="input-group mb-3">
+                    <span class="input-group-text" style="background: #5521E3 0% 0% no-repeat padding-box;"
+                          id="basic-addon6"><i class="bi bi-facebook"></i></span>
+              <input class="form-control form-control-lg" name="linkFacebook"  formControlName="linkFacebook"  type="url" placeholder="Link Facebook" >
+            </div>
+          </div>
+
+          <div  class="col-md-12 form-group mt-3 mt-md-0 mb-4" >
+            <button type="button" class="btn " style="float: left " (click)="div3FunctionRetour()"><i class="bi bi-chevron-left"></i> Retour </button>
+            <button type="button" class="btn " style="float: right " (click)="div3Function()">Page suivante <i class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+
+      </div>
+      <!--div 4 -->
+      <div  *ngIf="div4">
+
+        <h1 style="text-align: left;
+        font: normal normal 600 75px/92px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #18DABF;
+        opacity: 1;">Suivant</h1>
+        <span style="text-align: left;
+        font: normal normal bold 22px/30px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #C5C5C5">On vous a attendu !</span><br>
+        <p style="text-align: left;
+        font: normal normal normal 22px/30px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #C5C5C5;"> Bienvenue au panel des contributeurs</p>
+        <hr style="width: 100%">
+        <p style="text-align: left;
+        font: normal normal normal 30px/40px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #5521E3;
+        opacity: 1;"> 4 <i class="bi bi-arrow-right"></i> Est ce que vous voulez vendre des créations sur cette plateforme ?</p>
+        <div class="row">
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <button   style="text-align: center!important; width: 100%;   padding: 2% 3%; border-radius: 9px; border: 1px solid; color: blue; font-weight: bold;" [style.background]="clicked4?'blue':'#fff'" [style.color]="clicked4?'white':'blue'"  (click)="checked4()">Oui</button>
+          </div>
+          <div  class="col-md-6 form-group mt-3 mt-md-0 mb-4">
+            <button   style="text-align: center!important; width: 100%;  padding: 2% 3%; border-radius: 9px; border: 1px solid; color: blue; font-weight: bold;" [style.background]="clicked5?'blue':'#fff'" [style.color]="clicked5?'white':'blue'"  (click)="checked5()" >Non</button>
+          </div>
+
+
+
+          <div  class="col-md-12 form-group mt-3 mt-md-0 mb-4" >
+            <button type="button" class="btn " style="float: left " (click)="div4FunctionRetour()"><i class="bi bi-chevron-left"></i> Retour </button>
+            <button type="button" class="btn " style="float: right " (click)="div4Function( )">Page suivante <i class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <!--div 5 -->
+      <div *ngIf="div5">
+        <h1 style="text-align: left;
+        font: normal normal 600 75px/92px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #18DABF;
+        opacity: 1;">Done !</h1>
+        <span style="text-align: left;
+        font: normal normal bold 22px/30px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #C5C5C5">On vous a attendu !</span><br>
+        <p style="text-align: left;
+        font: normal normal normal 22px/30px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #C5C5C5;"> Bienvenue au panel des contributeurs</p>
+        <hr style="width: 100%">
+        <p style="text-align: left;
+        font: normal normal normal 30px/40px 'Montserrat', sans-serif;
+        letter-spacing: 0px;
+        color: #5521E3;
+        opacity: 1;"> 5 <i class="bi bi-arrow-right"></i> En joignant notre communauté de contributeur Menapik, vous allez :</p>
+        <div class="row">
+          <div  class="col-md-12 form-group mt-3 mt-md-0 mb-4">
+            <ul>
+              <li> Gagner un revenue en argent ( On va vous contacter les détails bientôt )</li>
+              <li> Faire partie d'une large communauté de créatifs dans toute la région Mena</li>
+              <li> Faire partie d'une large communauté de créatifs dans toute la région Mena</li>
+            </ul>
+          </div>
+
+          <div  class="col-md-12 form-group mt-3 mt-md-0 mb-4" >
+            <button type="button" class="btn" style="float: left " (click)="div5FunctionRetour()"><i class="bi bi-chevron-left"></i> Retour </button>
+            <button type="submit" class="btn " (click)="onSubmit()" style="float: right "> Valider </button>
+          </div>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</section>

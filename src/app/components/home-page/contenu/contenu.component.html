@@ -1,0 +1,72 @@
+<section class="about" id="contenu">
+  <div class="container testimonials" style="max-width: 85%;">
+
+    <div class="row">
+
+      <div class="col-lg-4 pt-4 pt-lg-0 order-2 order-lg-1 content aos-init aos-animate" data-aos="fade-right"
+           style="font: normal normal 600 38px/48px 'Quicksand', sans-serif;">
+        <h3>La meilleure communauté de <span style="color: #FF6B31;">créateurs</span> en ligne</h3>
+        <p>
+          Vous pouvez vendre vos créations et rejoindre notre communauté de créatifs.
+        </p>
+
+        <a ariaCurrentWhenActive="page" class="read-more" routerLink="/contributeur" routerLinkActive="active"
+           style="text-decoration: none;">Devenir un contributeur <i class="bi bi-long-arrow-right"></i></a>
+      </div>
+
+      <div class="col-lg-8 order-1 order-lg-2">
+        <swiper [autoplay]="{
+          delay: 3000,
+          disableOnInteraction: false
+        }" [loopFillGroupWithBlank]="true" [loop]="true" [navigation]="true"
+                [slidesPerGroup]="1" [slidesPerView]=slideNumber [spaceBetween]="0">
+          <ng-template swiperSlide>
+            <img alt="" class="testimonial-img" src="../../../../assets/img/Groupe%20de%20masques%2044.png"
+                 style="max-width: 200px; margin-left: 15%; width: inherit;">
+            <h4
+              class="swiper-h4">
+              Ons Fergeni</h4>
+          </ng-template>
+          <ng-template swiperSlide>
+            <img alt="" class="testimonial-img" src="../../../../assets/img/Groupe%20de%20masques%2068.png"
+                 style="max-width: 200px; margin-left: 15%; width: inherit">
+            <h4
+              class="swiper-h4">
+              Iheb Kahri</h4>
+          </ng-template>
+          <ng-template swiperSlide>
+            <img alt="" class="testimonial-img" src="../../../../assets/img/Groupe%20de%20masques%2078.png"
+                 style="max-width: 200px; margin-left: 15%; width: inherit">
+            <h4
+              class="swiper-h4">
+              Aicha Souelmi</h4>
+          </ng-template>
+          <ng-template swiperSlide>
+            <img alt="" class="testimonial-img" src="../../../../assets/img/Groupe%20de%20masques%2041.png"
+                 style="max-width: 200px; margin-left: 15%; width: inherit">
+            <h4
+              class="swiper-h4">
+              Khemais Ben Amor</h4>
+          </ng-template>
+          <ng-template swiperSlide>
+            <img alt="" class="testimonial-img" src="../../../../assets/img/Groupe%20de%20masques%2042.png"
+                 style="max-width: 200px; margin-left: 15%; width: inherit">
+            <h4
+              class="swiper-h4">
+              Salsabile Cherif</h4>
+          </ng-template>
+          <ng-template swiperSlide>
+            <img alt="" class="testimonial-img" src="../../../../assets/img/Groupe%20de%20masques%2043.png"
+                 style="max-width: 200px; margin-left: 15%; width: inherit">
+            <h4
+              class="swiper-h4">
+              Sarah Kassir</h4>
+          </ng-template>
+        </swiper>
+      </div>
+    </div>
+
+  </div>
+
+
+</section>

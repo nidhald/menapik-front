@@ -1,0 +1,93 @@
+<app-hero (multipleValue)="onSearchTextEntered($event)"></app-hero>
+<section class=" section-bg" id="creation" style="  background: #FAFBFF 0% 0% no-repeat padding-box;">
+  <div class="container-fluid aos-init aos-animate" data-aos="fade-up" style="padding: 0% 4%;">
+
+      <div *ngIf="((searchCategory === '') && (searchText) === '')" class="row">
+        <div *ngFor="let p of Products | paginate: { itemsPerPage: 8, currentPage: cp }; let i = index"
+             class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 aos-init aos-animate" style="cursor: pointer;">
+          <!--     <div class="creation-container" *ngIf="searchText === '' || (p.nameP.toLowerCase().includes(searchText))">-->
+          <div (click)="goToProduct(p.id)" (mouseenter)="hoverIdx = i" (mouseleave)="hoverIdx = -1">
+                    <span [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== i }">
+
+                      <div class="row" style="margin-top: 75%;">
+                           <i>{{ p.nameP }}</i>
+                      </div>
+                    </span>
+            <a ariaCurrentWhenActive="page" class="read-more" routerLink="/details/{{p.id}}" routerLinkActive="active"
+               style="text-decoration: none;">
+              <img [alt]="p.descriptionP" [src]="p.imageP"
+                   class="image mb-3" loading="lazy"
+                   style=" height: -webkit-fill-available; width: -webkit-fill-available;">
+            </a>
+            <!--  <img loading="lazy" style=" height: -webkit-fill-available; width: -webkit-fill-available;" [src]="p.imageP" [alt]="p.descriptionP" class="image mb-3"> -->
+          </div>
+
+          <!--      </div>-->
+        </div>
+        <pagination-controls (pageChange)="cp = $event" *ngIf="Products.length > 8" class="justify-content-center"
+                             style=" display: flex;"></pagination-controls>
+      </div>
+      <div *ngIf="((searchCategory != '') && (searchText) === '')" class="row">
+        <div *ngFor="let p of filteredProduct | paginate: { itemsPerPage: 8, currentPage: cp }; let i = index"
+             class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 aos-init aos-animate" style="cursor: pointer;">
+          <!--     <div class="creation-container" *ngIf="searchText === '' || (p.nameP.toLowerCase().includes(searchText))">-->
+          <div (click)="goToProduct(p.id)" (mouseenter)="hoverIdx = i" (mouseleave)="hoverIdx = -1">
+                  <span [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== i }">
+                    <div class="row" style="margin-top: 75%;">
+                           <i>{{ p.nameP }}</i>
+                      </div></span>
+            <img [alt]="p.descriptionP" [src]="p.imageP" class="image mb-3"
+                 loading="lazy" style=" height: -webkit-fill-available; width: -webkit-fill-available;">
+          </div>
+          <!--      </div>-->
+        </div>
+        <pagination-controls (pageChange)="cp = $event" *ngIf="filteredProduct.length > 8"
+                             class="justify-content-center" style=" display: flex;"></pagination-controls>
+      </div>
+      <div *ngIf="((searchCategory != '') && (searchText) != '')" class="row">
+        <div *ngFor="let p of filteredProduct | paginate: { itemsPerPage: 8, currentPage: cp }; let i = index"
+             class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 aos-init aos-animate" style="cursor: pointer;">
+          <!--     <div class="creation-container" *ngIf="searchText === '' || (p.nameP.toLowerCase().includes(searchText))">-->
+          <div (click)="goToProduct(p.id)" (mouseenter)="hoverIdx = i" (mouseleave)="hoverIdx = -1">
+                  <span [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== i }">
+                                          <div class="row" style="margin-top: 75%;">
+                           <i>{{ p.nameP }}</i>
+                      </div>
+                  </span>
+            <img [alt]="p.descriptionP" [src]="p.imageP" class="image mb-3"
+                 loading="lazy" style=" height: -webkit-fill-available; width: -webkit-fill-available;">
+          </div>
+          <!--      </div>-->
+        </div>
+        <pagination-controls (pageChange)="cp = $event" *ngIf="filteredProduct.length > 8"
+                             class="justify-content-center" style=" display: flex;"></pagination-controls>
+      </div>
+      <div *ngIf="((searchCategory === '') && (searchText) != '')" class="row">
+        <div *ngFor="let p of filteredProduct | paginate: { itemsPerPage: 8, currentPage: cp }; let i = index"
+             class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 aos-init aos-animate" style="cursor: pointer;">
+          <!--     <div class="creation-container" *ngIf="searchText === '' || (p.nameP.toLowerCase().includes(searchText))">-->
+          <div (click)="goToProduct(p.id)" (mouseenter)="hoverIdx = i" (mouseleave)="hoverIdx = -1">
+                  <span [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== i }">
+                                          <div class="row" style="margin-top: 75%;">
+                           <i>{{ p.nameP }}</i>
+                      </div>
+                  </span>
+            <img [alt]="p.descriptionP" [src]="p.imageP" class="image mb-3"
+                 loading="lazy" style=" height: -webkit-fill-available; width: -webkit-fill-available;">
+          </div>
+          <!--      </div>-->
+        </div>
+        <pagination-controls (pageChange)="cp = $event" *ngIf="filteredProduct.length > 8"
+                             class="justify-content-center" style=" display: flex;"></pagination-controls>
+      </div>
+
+    <div class="section-title ">
+      <a ariaCurrentWhenActive="page" id="more" routerLink="/more" routerLinkActive="active"
+         style="text-decoration: none;">
+        Voir plus</a>
+
+
+    </div>
+
+  </div>
+</section>

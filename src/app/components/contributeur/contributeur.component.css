@@ -1,0 +1,55 @@
+.suivant{
+
+  text-align: left;
+  font: normal normal 600 75px/92px 'Montserrat', sans-serif;
+  letter-spacing: 0px;
+  color: #18DABF;
+  opacity: 1;
+}
+.span{
+  text-align: left;
+  font: normal normal bold 22px/30px 'Montserrat', sans-serif;
+  letter-spacing: 0px;
+  color: #C5C5C5;
+}
+
+.p1{
+  text-align: left;
+  font: normal normal normal 22px/30px 'Montserrat', sans-serif;
+  letter-spacing: 0px;
+  color: #C5C5C5;
+}
+.p2{
+  text-align: left;
+  font: normal normal normal 30px/40px 'Montserrat', sans-serif;
+  letter-spacing: 0px;
+  color: #5521E3;
+  opacity: 1;
+}
+.input-div2{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 40px #E2ECF980;
+  border-radius: 9px;
+  opacity: 1;
+}
+
+/*i {
+  font-size: 2rem;
+  color: white;
+}*/
+i.bi.bi-behance , i.bi.bi-facebook, i.bi.bi-dribbble , i.bi.bi-linkedin  {
+  font-size: 2rem;
+  color: white;
+}
+.btn:hover{
+/*  background: #FFFFFF 0% 0% no-repeat padding-box;*/
+  border: 2px solid #18DABF;
+  color: white;
+  background-color: #18DABF;
+}
+.btn{
+  float: right;
+  border: 2px solid #18DABF;
+  color: #18DABF;
+}
+

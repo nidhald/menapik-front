@@ -1,0 +1,195 @@
+<app-hero (multipleValue)="onSearchTextEntered($event)"></app-hero>
+<div class="container-fluid">
+	<div class="row" style="background: #FAFBFF 0% 0% no-repeat padding-box;">
+		<div class="col-xl-2 col-lg-12 col-sm-12">
+			<section>
+				<div class="wrapper">
+					<nav id="sidebar" style=" border: 1px solid #FAFBFF; background: #FAFBFF 0% 0% no-repeat padding-box; box-shadow: 0px 3px 6px #00000029; opacity: 1;">
+						<div class="sidebar-header">
+							<h3 style="text-align: left;
+					  font: normal normal bold 25px/30px 'Montserrat', sans-serif;
+					  letter-spacing: 0px;
+					  color: #BDA5FF;
+					  opacity: 1;"><i class="bi bi-sliders"></i>&nbsp;Filter</h3>
+						</div>
+						<hr>
+						<ul class="list-unstyled components">
+              <!-- licence checkbox-->
+							<li class="nav-item">
+								<a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item1" style="cursor: pointer;" >
+									Licence <i class="bi small bi-caret-down-fill"></i>
+								</a>
+								<ul id="menu_item1" class="submenu2 collapse" data-bs-parent="#nav_accordion"
+									style="padding-left: 0rem;">
+
+                  <li *ngFor="let l of licence">
+                    <a class="nav-link">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" [value]="l.val" (change)="getLicenceValue(l.val, $event)"
+                               id="{{l.val}}" />
+                        <label class="form-check-label" for="{{l.val}}">{{l.Name}}</label>
+                      </div>
+                    </a>
+                  </li>
+								</ul>
+							</li>
+
+              <!-- categorie check box-->
+							<li class="nav-item">
+								<a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item2" >
+									Categorie <i class="bi small bi-caret-down-fill"></i> </a>
+								<ul id="menu_item2" class="submenu2 collapse" data-bs-parent="#nav_accordion"
+									style="padding-left: 0rem;">
+                  <li *ngFor="let c of category">
+                    <a class="nav-link">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" [value]="c.val" (change)="getCategoryValue(c.val, $event)"
+                               id="{{c.val}}" />
+                        <label class="form-check-label" for="{{c.val}}">{{c.Name}}</label>
+                      </div>
+                    </a>
+                  </li>
+
+								</ul>
+							</li>
+              <!-- format checkbox -->
+							<li class="nav-item" >
+								<a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item3" href="#">
+									Format <i class="bi small bi-caret-down-fill"></i> </a>
+								<ul id="menu_item3" class="submenu2 collapse" data-bs-parent="#nav_accordion"
+									style="padding-left: 0rem;">
+									<li *ngFor="let f of format">
+										<a class="nav-link">
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" [value]="f.val" (change)="getFormatValue(f.val, $event)"
+													id="{{f.val}}" />
+												<label class="form-check-label" for="{{f.val}}">{{f.Name}}</label>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</li>
+              <!-- color check box -->
+							<li class="nav-item">
+								<a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item4" style="cursor: pointer;">
+                  Couleurs
+                  <i class="bi small bi-caret-down-fill"></i>
+                </a>
+								<ul id="menu_item4" class="submenu3 collapse" data-bs-parent="#nav_accordion"
+									style="padding-left: 0rem; grid-template-columns: repeat(5,1fr);">
+
+                  <li *ngFor="let c of couleur">
+                    <a class="nav-link">
+                        <input class="form-check-input" type="checkbox" [style.background-color]="c.val" [value]="c.val" (change)="getColorValue(c.val, $event)"
+                             style="border-radius: 1.25em;width:25px;height:25px"  id="{{c.val}}" />
+                       <!-- <label class="form-check-label" [style.color]="c.val" for="{{c.val}}"><i class="bi bi-square-fill"></i></label>-->
+                    </a>
+                  </li>
+
+								</ul>
+
+							</li>
+              <!-- style check box -->
+							<li class="nav-item">
+								<a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item5" href="#">
+									Style <i class="bi small bi-caret-down-fill"></i> </a>
+								<ul id="menu_item5" class="submenu collapse" data-bs-parent="#nav_accordion"
+									style="padding-left: 0rem;list-style: none;background: #FFFFFF 0% 0% no-repeat padding-box;">
+                  <li *ngFor="let s of styles">
+                    <a class="nav-link">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" [value]="s.val" (change)="getStyleValue(s.val, $event)"
+                               id="{{s.val}}" />
+                        <label class="form-check-label" for="{{s.val}}">{{s.Name}}</label>
+                      </div>
+                    </a>
+                  </li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+		<div class="col-xl-10 col-lg-12 col-sm-12">
+      <section id="creation" class=" section-bg" style="  background: #FAFBFF 0% 0% no-repeat padding-box;">
+        <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
+
+            <div class="col-xl-12" >
+              <div class="row" *ngIf="(((searchCategory === '') && (searchText) === '') && (counter === 0))">
+                <div *ngFor="let p of Products | paginate: { itemsPerPage: 8, currentPage: cp }; let i = index" class="col-lg-3 col-md-6 aos-init aos-animate" style="margin-top: 12px; margin-bottom: 12px;cursor: pointer;">
+                  <!--     <div class="creation-container" *ngIf="searchText === '' || (p.nameP.toLowerCase().includes(searchText))">-->
+                  <div   (mouseenter)="hoverIdx = i" (mouseleave)="hoverIdx = -1" >
+
+
+                      <a routerLink="/details/{{p.id}}" routerLinkActive="active" ariaCurrentWhenActive="page" class="read-more"
+                         style="text-decoration: none;">
+                        <img loading="lazy"
+                             style=" height: -webkit-fill-available;
+                              width: -webkit-fill-available;"
+                             [src]="p.imageP"
+                             [alt]="p.descriptionP"
+                             class="image">
+                        <span *ngIf="hoverIdx === i" class="overlay-icon">
+                         <div class="row" style="margin-top: 75%;">
+                           <i>{{ p.nameP }}</i>
+                      </div>
+                      </span>
+                      </a>
+                  </div>
+                </div>
+                <pagination-controls (pageChange)="cp = $event" *ngIf="Products.length > 8" class="justify-content-center"
+                                     style=" display: flex;"></pagination-controls>
+              </div>
+              <div class="row" *ngIf="(counter != 0) && (searchCategory === '') && (searchText) === ''">
+                <div *ngFor="let p of filteredProduct | paginate: { itemsPerPage: 8, currentPage: cp }; let i = index" class="col-lg-3 col-md-6 aos-init aos-animate" style="margin-top: 12px; margin-bottom: 12px;cursor: pointer;">
+                  <!--     <div class="creation-container" *ngIf="searchText === '' || (p.nameP.toLowerCase().includes(searchText))">-->
+                  <div  (mouseenter)="hoverIdx = i" (mouseleave)="hoverIdx = -1" >
+
+                    <a routerLink="/details/{{p.id}}" routerLinkActive="active" ariaCurrentWhenActive="page" class="read-more"
+                       style="text-decoration: none;">
+                      <img loading="lazy"
+                           style=" height: -webkit-fill-available;
+                            width: -webkit-fill-available;"
+                           [src]="p.imageP"
+                           [alt]="p.descriptionP" class="image">
+                      <span [ngClass]="{ 'overlay-icon': true, 'hide': hoverIdx !== i }">{{ p.nameP }}</span>
+                    </a>
+                  </div>
+                  <!--      </div>-->
+                </div>
+                <pagination-controls (pageChange)="cp = $event" *ngIf="filteredProduct.length > 8" class="justify-content-center"
+                                     style=" display: flex;"></pagination-controls>
+              </div>
+              <div class="row" *ngIf="((searchCategory != '') && (searchText) === '') || (((searchCategory != '') && (searchText) != '')) || (((searchCategory === '') && (searchText) != ''))">
+                <div *ngFor="let p of filteredProduct | paginate: { itemsPerPage: 8, currentPage: cp }; let i = index" class="col-lg-3 col-md-6 aos-init aos-animate" style="margin-top: 12px; margin-bottom: 12px;cursor: pointer;">
+                  <!--     <div class="creation-container" *ngIf="searchText === '' || (p.nameP.toLowerCase().includes(searchText))">-->
+                  <p   (mouseenter)="hoverIdx = i" (mouseleave)="hoverIdx = -1" >
+                    <a routerLink="/details/{{p.id}}" routerLinkActive="active" ariaCurrentWhenActive="page" class="read-more"
+                       style="text-decoration: none;"><img loading="lazy" style=" height: -webkit-fill-available; width: -webkit-fill-available;" [src]="p.imageP" [alt]="p.descriptionP" class="image">
+                      <span  *ngIf="hoverIdx === i " >{{ p.nameP }}</span>
+                    </a>
+                  </p>
+                  <!--      </div>-->
+                </div>
+                <pagination-controls (pageChange)="cp = $event" *ngIf="filteredProduct.length > 8" class="justify-content-center"
+                                     style=" display: flex;"></pagination-controls>
+              </div>
+            </div>
+          <br>
+
+<!--          <div class="section-title ">
+            <a routerLink="/more" routerLinkActive="active" ariaCurrentWhenActive="page"  class="ines" style="text-decoration: none;">
+              Voir plus</a>
+
+
+          </div>-->
+
+        </div>
+      </section>
+
+
+    </div>
+
+	</div>
+</div>
