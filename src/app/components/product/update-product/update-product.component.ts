@@ -30,7 +30,7 @@ export class UpdateProductComponent implements OnInit {
   clicked8 = false;
   clicked9 = false;
   updateProductForm: FormGroup;
-  imageURL: any = "../../../../assets/img/mena/Asset%2016.png";
+  imageURL: any = "assets/img/mena/Asset%2016.png";
 
 
   private apiUrl = 'http://localhost:8080';

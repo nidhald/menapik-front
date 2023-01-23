@@ -38,7 +38,7 @@ export class VendreVotreContenuComponent implements OnInit {
   private roles: string[] = [];
   showAdminBoard = false;
 
-  imageDataUrl: any = "../../../../assets/img/mena/Asset%2016.png";
+  imageDataUrl: any = "assets/img/mena/Asset%2016.png";
   styleGraphic = [
     {Id: 0, Name: "Style gpraphique"},
     {Id: 1, Name: "Caligraphie", val: "Caligraphie"},
